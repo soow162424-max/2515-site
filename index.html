@@ -3,70 +3,92 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Server 2515</title>
+<title>SERVER 2515</title>
 
 <style>
 body {
   margin:0;
   font-family: Arial;
-  background: radial-gradient(circle at top, #0b1a24, #02070b);
+  background: #0b1a24;
   color:white;
   text-align:center;
 }
 
-.snow {
-  position:fixed;
-  width:100%;
-  height:100%;
-  background-image: radial-gradient(white 1px, transparent 1px);
-  background-size:20px 20px;
-  animation:snow 20s linear infinite;
-  opacity:0.3;
-}
-
-@keyframes snow {
-  from { transform: translateY(-100px); }
-  to { transform: translateY(100vh); }
-}
-
+/* 컨테이너 */
 .container {
-  margin-top:120px;
+  margin-top:100px;
 }
 
+/* 제목 */
 h1 {
   font-size:50px;
   text-shadow:0 0 15px #00ccff;
 }
 
-.btn {
-  display:block;
-  width:250px;
-  margin:15px auto;
-  padding:15px;
-  border-radius:12px;
-  background:rgba(0,153,204,0.3);
-  color:white;
-  text-decoration:none;
+/* 연맹 버튼 */
+.faction-btn {
+  display:inline-block;
+  margin:10px;
+  padding:12px 25px;
+  border-radius:10px;
+  background:#1f3a4a;
+  cursor:pointer;
 }
 
-.btn:hover {
+.faction-btn:hover {
   background:#00ccff;
+}
+
+/* 이벤트 박스 */
+.event-box {
+  margin-top:40px;
+  padding:20px;
+  border-radius:15px;
+  background:rgba(255,255,255,0.05);
+  width:300px;
+  margin-left:auto;
+  margin-right:auto;
 }
 </style>
 </head>
 
 <body>
 
-<div class="snow"></div>
-
 <div class="container">
   <h1>🔥 SERVER 2515 🔥</h1>
-  <p>화이트아웃 서바이벌</p>
 
-  <a class="btn" href="#">🎮 게임 입장</a>
-  <a class="btn" href="#">💬 디스코드</a>
-  <a class="btn" href="#">📢 공지</a>
+  <!-- 연맹 선택 -->
+  <div>
+    <span class="faction-btn" onclick="showUNI()">UNI</span>
+    <span class="faction-btn" onclick="showKOR()">KOR</span>
+  </div>
+
+  <!-- 이벤트 내용 -->
+  <div class="event-box" id="eventBox">
+    <h2>연맹 선택</h2>
+    <p>위에서 연맹을 선택하세요</p>
+  </div>
 </div>
+
+<script>
+function showUNI() {
+  document.getElementById("eventBox").innerHTML = `
+    <h2>UNI 연맹</h2>
+    <p>🔥 프로스트 드래곤: 20:00</p>
+    <p>⚔️ 연맹전: 21:30</p>
+    <p>🏆 섬 점령: 19:00</p>
+  `;
+}
+
+function showKOR() {
+  document.getElementById("eventBox").innerHTML = `
+    <h2>KOR 연맹</h2>
+    <p>🔥 프로스트 드래곤: 19:30</p>
+    <p>⚔️ 연맹전: 21:00</p>
+    <p>🏆 섬 점령: 18:30</p>
+  `;
+}
+</script>
 
 </body>
 </html>
